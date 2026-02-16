@@ -39,9 +39,16 @@ flask db upgrade
 flask run
 ```
 
-### Background Video
+### Background Videos
 
-Place an MP4 video file at `app/static/video/background.mp4`. Short rain/nature clips from [Pexels](https://www.pexels.com/search/videos/rain/) work well (HD, 10-20s, <8MB).
+The app uses two separate video backgrounds from [Pexels](https://www.pexels.com/) (royalty-free):
+
+| File | Used on | Description |
+|------|---------|-------------|
+| `app/static/video/landing_bg.mp4` | Landing, login, register pages | Abstract shimmering crystals |
+| `app/static/video/dashboard_bg.mp4` | Dashboard and notes pages | Rainy night atmosphere |
+
+To replace them, drop any HD MP4 files (1080p, <15MB) with the same filenames.
 
 ### Environment Variables
 

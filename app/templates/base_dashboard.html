@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="dashboard-body">
+    <div class="video-bg">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="{{ url_for('static', filename='video/dashboard_bg.mp4') }}" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
     <nav class="navbar">
         <a href="{{ url_for('index') }}" class="nav-brand">Notepad Portal</a>
         <div class="nav-links">

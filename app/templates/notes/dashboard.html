@@ -9,7 +9,20 @@
         <a href="{{ url_for('notes.create') }}" class="btn btn-primary">+ New Note</a>
     </div>
 
-    {% if notes %}
+    <form method="GET" action="{{ url_for('notes.dashboard') }}" class="search-bar">
+        <input type="text" name="q" class="form-control search-input" placeholder="Search notes by title or content..." value="{{ query or '' }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+        {% if query %}
+            <a href="{{ url_for('notes.dashboard') }}" class="btn btn-secondary">Clear</a>
+        {% endif %}
+    </form>
+
+    {% if query and not notes %}
+        <div class="empty-state">
+            <h2>No results</h2>
+            <p>No notes matching "{{ query }}".</p>
+        </div>
+    {% elif notes %}
         <div class="notes-grid">
             {% for note in notes %}
                 <div class="note-card">

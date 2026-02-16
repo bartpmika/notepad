@@ -1,4 +1,4 @@
-from flask import abort, flash, redirect, render_template, url_for
+from flask import abort, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
 
 from app import db
@@ -10,8 +10,18 @@ from app.notes.forms import NoteForm
 @bp.route('/')
 @login_required
 def dashboard():
-    notes = current_user.notes.order_by(Note.updated_at.desc()).all()
-    return render_template('notes/dashboard.html', notes=notes)
+    q = request.args.get('q', '').strip()
+    if q:
+        pattern = f'%{q}%'
+        notes = (
+            current_user.notes
+            .filter(Note.title.ilike(pattern) | Note.body.ilike(pattern))
+            .order_by(Note.updated_at.desc())
+            .all()
+        )
+    else:
+        notes = current_user.notes.order_by(Note.updated_at.desc()).all()
+    return render_template('notes/dashboard.html', notes=notes, query=q)
 
 
 @bp.route('/create', methods=['GET', 'POST'])

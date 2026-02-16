@@ -304,6 +304,17 @@ a:hover {
     font-size: 2rem;
 }
 
+/* ===== Search Bar ===== */
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-input {
+    flex: 1;
+}
+
 /* ===== Notes Grid ===== */
 .notes-grid {
     display: grid;

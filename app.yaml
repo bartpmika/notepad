@@ -1,0 +1,11 @@
+runtime: python312
+entrypoint: gunicorn -b :$PORT wsgi:app
+
+env_variables:
+  FLASK_CONFIG: "production"
+
+instance_class: F1
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 2

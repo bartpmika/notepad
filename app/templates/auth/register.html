@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Notepad Portal{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Register</h2>
+    <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label }}
+            {{ form.username(class="form-control", placeholder="Choose a username") }}
+            {% for error in form.username.errors %}
+                <span class="form-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class="form-control", placeholder="Enter your email") }}
+            {% for error in form.email.errors %}
+                <span class="form-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class="form-control", placeholder="Create a password") }}
+            {% for error in form.password.errors %}
+                <span class="form-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.password2.label }}
+            {{ form.password2(class="form-control", placeholder="Confirm your password") }}
+            {% for error in form.password2.errors %}
+                <span class="form-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        {{ form.submit(class="btn btn-primary btn-block") }}
+    </form>
+    <p class="form-footer">Already have an account? <a href="{{ url_for('auth.login') }}">Log In</a></p>
+</div>
+{% endblock %}

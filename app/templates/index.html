@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Notepad Portal - Your Notes, Anywhere{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Notepad Portal</h1>
+    <p class="hero-subtitle">Store your thoughts securely. Access them anywhere.</p>
+    <div class="hero-actions">
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('notes.dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+        {% else %}
+            <a href="{{ url_for('auth.register') }}" class="btn btn-primary">Get Started</a>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-secondary">Log In</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}{{ note.title }} - Notepad Portal{% endblock %}
+
+{% block content %}
+<div class="note-view">
+    <div class="note-view-header">
+        <h1>{{ note.title }}</h1>
+        <div class="note-view-actions">
+            <a href="{{ url_for('notes.edit', id=note.id) }}" class="btn btn-primary">Edit</a>
+            <form method="POST" action="{{ url_for('notes.delete', id=note.id) }}" class="delete-form" style="display:inline">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <a href="{{ url_for('notes.dashboard') }}" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+    <div class="note-view-meta">
+        Created: {{ note.created_at.strftime('%Y-%m-%d %H:%M') }}
+        | Updated: {{ note.updated_at.strftime('%Y-%m-%d %H:%M') }}
+    </div>
+    <div class="note-view-body">
+        {{ note.body | replace('\n', '<br>') | safe }}
+    </div>
+</div>
+{% endblock %}

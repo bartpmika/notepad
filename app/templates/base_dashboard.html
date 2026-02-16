@@ -15,7 +15,10 @@
     </div>
 
     <nav class="navbar">
-        <a href="{{ url_for('index') }}" class="nav-brand">Notepad Portal</a>
+        <a href="{{ url_for('index') }}" class="nav-brand">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="NoteFlow" class="nav-logo">
+            NoteFlow
+        </a>
         <div class="nav-links">
             <a href="{{ url_for('notes.dashboard') }}">My Notes</a>
             <a href="{{ url_for('notes.create') }}">New Note</a>

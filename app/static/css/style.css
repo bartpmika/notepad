@@ -73,6 +73,9 @@ a:hover {
 }
 
 .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
@@ -80,6 +83,12 @@ a:hover {
 
 .nav-brand:hover {
     color: #7eb8ff;
+}
+
+.nav-logo {
+    height: 36px;
+    width: auto;
+    border-radius: 6px;
 }
 
 .nav-links {
@@ -102,6 +111,14 @@ a:hover {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+.hero-logo {
+    height: 120px;
+    width: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== Hero ===== */

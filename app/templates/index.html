@@ -4,7 +4,8 @@
 
 {% block content %}
 <div class="hero">
-    <h1>Notepad Portal</h1>
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="NoteFlow" class="hero-logo">
+    <h1>NoteFlow</h1>
     <p class="hero-subtitle">Store your thoughts securely. Access them anywhere.</p>
     <div class="hero-actions">
         {% if current_user.is_authenticated %}
